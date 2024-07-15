@@ -5,6 +5,7 @@ import {
   ePolygonNetwork,
   eXDaiNetwork,
   iParamsPerNetwork,
+  eLiskNetwork,
 } from './helpers/types';
 
 const INFURA_KEY = process.env.INFURA_KEY || '';
@@ -12,8 +13,8 @@ const ALCHEMY_KEY = process.env.ALCHEMY_KEY || '';
 const TENDERLY_FORK = process.env.TENDERLY_FORK || '';
 
 export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
-    [eEthereumNetwork.sepolia]: ALCHEMY_KEY
-    ? `https://eth-sepolia.alchemyapi.io/v2/${ALCHEMY_KEY}`
+  [eEthereumNetwork.sepolia]: ALCHEMY_KEY
+    ? `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_KEY}`
     : `https://sepolia.infura.io/v3/${INFURA_KEY}`,
   [eEthereumNetwork.goerli]: ALCHEMY_KEY
     ? `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_KEY}`
@@ -30,5 +31,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eArbitrumNetwork.arbitrum]: `https://arb1.arbitrum.io/rpc`,
   [eArbitrumNetwork.arbitrumTestnet]: `https://sepolia-rollup.arbitrum.io/rpc`,
   [eOptimismNetwork.main]: `https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
-  [eOptimismNetwork.testnet]: "https://sepolia.optimism.io",
+  [eOptimismNetwork.testnet]: 'https://sepolia.optimism.io',
+  [eLiskNetwork.main]: 'https://rpc.api.lisk.com',
+  [eLiskNetwork.testnet]: 'https://rpc.sepolia-api.lisk.com',
 };

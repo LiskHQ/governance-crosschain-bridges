@@ -19,7 +19,7 @@ import {
 } from '../helpers/misc-utils';
 import { ONE_ADDRESS, ZERO_ADDRESS } from '../helpers/constants';
 import { ActionsSetState, ExecutorErrors } from './helpers/executor-helpers';
-import { Selfdestructor__factory } from '../typechain/factories/Selfdestructor__factory';
+import { Selfdestructor__factory } from '../typechain/factories/contracts/mocks/Selfdestructor__factory';
 
 chai.use(solidity);
 

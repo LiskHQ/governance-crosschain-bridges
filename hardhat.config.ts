@@ -24,6 +24,7 @@ import {
   eOptimismNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eLiskNetwork,
 } from './helpers/types';
 import { NETWORKS_RPC_URL } from './helper-hardhat-config';
 
@@ -44,6 +45,7 @@ const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || '';
 const MAINNET_FORK = process.env.MAINNET_FORK === 'true';
 const FORKING_BLOCK_NUMBER = process.env.FORKING_BLOCK_NUMBER;
+const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY || '';
 const ARBISCAN_KEY = process.env.ARBISCAN_KEY || '';
 const OPTIMISTIC_ETHERSCAN_KEY = process.env.OPTIMISTIC_ETHERSCAN_KEY || '';
 const TENDERLY_PROJECT = process.env.TENDERLY_PROJECT || '';
@@ -112,7 +114,10 @@ const hardhatConfig: HardhatUserConfig = {
       optimisticEthereum: OPTIMISTIC_ETHERSCAN_KEY,
       arbitrumOne: ARBISCAN_KEY,
       optimisticSepolia: OPTIMISTIC_ETHERSCAN_KEY,
+      'lisk-sepolia': ETHERSCAN_KEY,
+      lisk: ETHERSCAN_KEY,
     },
+
     customChains: [
       {
         network: 'sepolia',
@@ -128,6 +133,22 @@ const hardhatConfig: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api-sepolia-optimism.etherscan.io/api',
           browserURL: 'https://sepolia-optimism.etherscan.io',
+        },
+      },
+      {
+        network: 'lisk',
+        chainId: 1135,
+        urls: {
+          apiURL: 'https://blockscout.lisk.com/api',
+          browserURL: 'https://blockscout.lisk.com',
+        },
+      },
+      {
+        network: 'lisk-sepolia',
+        chainId: 4202,
+        urls: {
+          apiURL: 'https://sepolia-blockscout.lisk.com/api',
+          browserURL: 'https://sepolia-blockscout.lisk.com',
         },
       },
     ],
@@ -146,6 +167,7 @@ const hardhatConfig: HardhatUserConfig = {
       companionNetworks: {
         optimism: eOptimismNetwork.testnet,
         arbitrum: eArbitrumNetwork.arbitrumTestnet,
+        lisk: eLiskNetwork.testnet,
       },
     },
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
@@ -154,6 +176,7 @@ const hardhatConfig: HardhatUserConfig = {
       companionNetworks: {
         optimism: eOptimismNetwork.main,
         arbitrum: eArbitrumNetwork.arbitrum,
+        lisk: eLiskNetwork.main,
       },
     },
     tenderlyMain: getCommonNetworkConfig(eEthereumNetwork.tenderlyMain, 5),
@@ -170,6 +193,13 @@ const hardhatConfig: HardhatUserConfig = {
     [eOptimismNetwork.main]: getCommonNetworkConfig(eOptimismNetwork.main, 10),
     [eOptimismNetwork.testnet]: {
       ...getCommonNetworkConfig(eOptimismNetwork.testnet, 11155420),
+      companionNetworks: {
+        l1: 'sepolia',
+      },
+    },
+    [eLiskNetwork.main]: getCommonNetworkConfig(eLiskNetwork.main, 1135),
+    [eLiskNetwork.testnet]: {
+      ...getCommonNetworkConfig(eLiskNetwork.testnet, 4202),
       companionNetworks: {
         l1: 'sepolia',
       },

@@ -34,7 +34,9 @@
     "deploy:optimism:testnet": "hardhat --network optimisticSepolia deploy --tags 'OptimisticGov'",
     "deploy:optimism:mainnet": "hardhat --network optimism deploy --tags 'OptimisticGov'",
     "deploy:arbitrum:testnet": "hardhat --network arbitrum-testnet deploy --tags 'ArbitrumGov'",
-    "deploy:arbitrum:mainnet": "hardhat --network arbitrum deploy --tags 'ArbitrumGov'"
+    "deploy:arbitrum:mainnet": "hardhat --network arbitrum deploy --tags 'ArbitrumGov'",
+    "deploy:lisk:testnet": "hardhat --network lisk-sepolia deploy --tags 'LiskGov'",
+    "deploy:lisk:mainnet": "hardhat --network lisk deploy --tags 'LiskGov'"
   },
   "devDependencies": {
     "@aave/governance-v2": "^1.0.0",
