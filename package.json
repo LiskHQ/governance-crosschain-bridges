@@ -36,7 +36,8 @@
     "deploy:arbitrum:testnet": "hardhat --network arbitrum-testnet deploy --tags 'ArbitrumGov'",
     "deploy:arbitrum:mainnet": "hardhat --network arbitrum deploy --tags 'ArbitrumGov'",
     "deploy:lisk:testnet": "hardhat --network lisk-sepolia deploy --tags 'LiskGov'",
-    "deploy:lisk:mainnet": "hardhat --network lisk deploy --tags 'LiskGov'"
+    "deploy:lisk:mainnet": "hardhat --network lisk deploy --tags 'LiskGov'",
+    "deploy:lisk:mainnet-forked": "MAINNET_FORK=true hardhat --network lisk deploy --tags 'LiskGov'"
   },
   "devDependencies": {
     "@aave/governance-v2": "^1.0.0",

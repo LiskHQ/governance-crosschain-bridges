@@ -137,7 +137,7 @@ const hardhatConfig: HardhatUserConfig = {
       },
       {
         network: 'lisk',
-        chainId: 1135,
+        chainId: MAINNET_FORK ? 31337 : 1135,
         urls: {
           apiURL: 'https://blockscout.lisk.com/api',
           browserURL: 'https://blockscout.lisk.com',
@@ -197,7 +197,7 @@ const hardhatConfig: HardhatUserConfig = {
         l1: 'sepolia',
       },
     },
-    [eLiskNetwork.main]: getCommonNetworkConfig(eLiskNetwork.main, 1135),
+    [eLiskNetwork.main]: getCommonNetworkConfig(eLiskNetwork.main, MAINNET_FORK ? 31337 : 1135),
     [eLiskNetwork.testnet]: {
       ...getCommonNetworkConfig(eLiskNetwork.testnet, 4202),
       companionNetworks: {
