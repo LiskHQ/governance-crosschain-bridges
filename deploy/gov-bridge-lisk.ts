@@ -9,15 +9,15 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   log(`Deployer: ${deployer}\n`);
 
-  const liskGov = await deployments.getOrNull('LiskGov');
+  const liskGov = await deployments.getOrNull('LiskMainnetGov');
 
   if (liskGov) {
     log(`Reusing optimistic governance at: ${liskGov.address}`);
   } else {
-    await deploy('LiskGov', {
+    await deploy('LiskMainnetGov', {
       args: [
         ADDRESSES['OVM_L2_MESSENGER'],
-        ADDRESSES['ETHEREUM_GOV_EXECUTOR_SEPOLIA'],
+        ADDRESSES['ETHEREUM_GOV_EXECUTOR_MAIN'],
         CONSTANTS['DELAY'],
         CONSTANTS['GRACE_PERIOD'],
         CONSTANTS['MIN_DELAY'],
