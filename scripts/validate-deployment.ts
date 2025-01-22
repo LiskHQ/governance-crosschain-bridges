@@ -4,10 +4,11 @@ import { JsonRpcProvider } from '@ethersproject/providers';
 import { ADDRESSES, CONSTANTS } from '../helpers/gov-constants';
 import { ArbitrumBridgeExecutor__factory, OptimismBridgeExecutor__factory } from '../typechain';
 
-// addresses of the test contracts from mainnet
-const OPT_CONTRACT_ADDRESS = '0x1dca41859cd23b526cbe74da8f48ac96e14b1a29';
-const ARB_CONTRACT_ADDRESS = '0xAf2F4F94F06F8f9c6FCA5547fDd5Da723e4aE803';
-const LISK_CONTRACT_ADDRESS = '0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f';
+// addresses of the test contracts from mainnet. 
+// We set Optimism and Arbitrum contracts to null because we don't want to check them.
+const OPT_CONTRACT_ADDRESS = null;//'0x1dca41859cd23b526cbe74da8f48ac96e14b1a29';
+const ARB_CONTRACT_ADDRESS = null;//'0xAf2F4F94F06F8f9c6FCA5547fDd5Da723e4aE803';
+const LISK_CONTRACT_ADDRESS = '0x0165878A594ca255338adfa4d48449f69242Eb8F';
 // test pk from hardhat default accounts list
 const testSignerPK = '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80';
 
